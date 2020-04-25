@@ -9,14 +9,11 @@ script:
     - docker run -e CI=true tungyn/frontend npm run test -- --coverage 
 
 deploy:
-    provider: elasticbeanstalk
-    region: "us-east-2"
-    app: "docker-frontend"
-    env: "Docker-env"
-    bucket_name: "elasticbeanstalk-us-east-2-340732097212"
-    bucket_path: "docker-frontend"
-    on: 
+    provider: s3
+    edge:
         branch: master
+    region: "us-east-2"
+    bucket: "elasticbeanstalk-us-east-2-340732097212"
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: 
         secure: $AWS_SECRET_KEY
