@@ -9,7 +9,7 @@ script:
     - docker run -e CI=true tungyn/frontend npm run test -- --coverage 
 
 deploy:
-    provider: "elasticbeanstalk"
+    provider: elasticbeanstalk
     region: "us-east-2"
     app: "docker-frontend"
     env: "Docker-env"
